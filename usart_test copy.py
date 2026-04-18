@@ -7,9 +7,7 @@ try:
     print(f"--- Connected to {PORT} at {BAUD_RATE} baud ---")
     print("Type characters to send to STM32 (Ctrl+C to exit)\n")
 
-    # Start a background thread to listen for incoming data
-    # thread = threading.Thread(target=read_from_port, args=(ser,), daemon=True)
-    # thread.start()
+
 
     while True:
         # Get user input

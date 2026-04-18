@@ -1,11 +1,6 @@
 import serial
-import threading
 import time
-
-# --- CONFIGURATION ---
-# Replace 'COM3' with your actual Bluetooth COM port (e.g., '/dev/ttyUSB0' on Linux)
-# Check your Device Manager (Windows) or 'ls /dev/tty*' (Mac/Linux)
-PORT = 'COM4' 
+PORT = 'COM5' 
 BAUD_RATE = 9600
 
 def read_from_port(ser):
@@ -27,11 +22,14 @@ try:
     # thread.start()
 
     while True:
-        # Get user input
-        msg = input("[You]: ")
-        # Send data (encoded to bytes)
-        ser.write(msg.encode('utf-8'))
-        time.sleep(0.1)
+        for i in range (0,180):
+            msg=str(i)
+            while (len(msg)!=3):
+                msg="0"+msg
+            msg="A"+msg    
+            print(msg)
+            ser.write(msg.encode('utf-8'))
+            time.sleep(0.05)    
 
 except serial.SerialException as e:
     print(f"Error: Could not open port {PORT}. Is the Bluetooth paired and connected?")
