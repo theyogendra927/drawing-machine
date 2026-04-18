@@ -6,9 +6,6 @@ try:
     ser = serial.Serial(PORT, BAUD_RATE, timeout=1)
     print(f"--- Connected to {PORT} at {BAUD_RATE} baud ---")
     print("Type characters to send to STM32 (Ctrl+C to exit)\n")
-
-
-
     while True:
         # Get user input
         msg = input("[You]: ")
